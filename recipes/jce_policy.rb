@@ -43,7 +43,7 @@ bash "extract-jce-policy" do
     then
       cp "#{java_home}/jre/lib/security/US_export_policy.jar" "#{java_home}/jre/lib/security/US_export_policy.jar.bak"
     fi
-    mv jce/*.jar "#{java_home}/jre/lib/security/"
+    mv UnlimitedJCEPolicy/*.jar "#{java_home}/jre/lib/security/"
   EOH
   not_if { 
     File.exists?("#{java_home}/jre/lib/security/local_policy.jar.bak") &&
